@@ -1,0 +1,562 @@
+/* ============================================
+   Genel Ayarlar ve Reset
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Renk Paleti - Soft Gradient Tones (Daha Zengin) */
+    --gradient-start: #FF9A9E;
+    --gradient-middle: #FECFEF;
+    --gradient-end: #C471ED;
+    --gradient-alt: #A8EDEA;
+    
+    /* Text Colors */
+    --text-primary: #2D3748;
+    --text-secondary: #4A5568;
+    --text-light: #718096;
+    
+    /* Card Colors */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: rgba(255, 154, 158, 0.5);
+    --card-glow: rgba(255, 154, 158, 0.3);
+    
+    /* Button Colors */
+    --button-bg: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 50%, #C471ED 100%);
+    --button-hover: linear-gradient(135deg, #FF8A8E 0%, #FEBFDF 50%, #B461DD 100%);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 30px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 50%, var(--gradient-end) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated Background Particles */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(196, 113, 237, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    animation: float 20s ease-in-out infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 154, 158, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(196, 113, 237, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+    animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* ============================================
+   Container
+   ============================================ */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* ============================================
+   Fade-in Animasyonları
+   ============================================ */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-1 {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-2 {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-3 {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-4 {
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-shadow: 0 3px 25px rgba(255, 255, 255, 0.5), 0 0 50px rgba(255, 154, 158, 0.3);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: var(--text-secondary);
+    opacity: 0.9;
+}
+
+/* ============================================
+   Illustration
+   ============================================ */
+.illustration-container {
+    margin: var(--spacing-lg) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15));
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ============================================
+   Motive Edici Kartlar
+   ============================================ */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+    padding: 0 var(--spacing-sm);
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    box-shadow: 0 4px 25px var(--card-shadow), 0 0 0 0 var(--card-glow);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left var(--transition-slow);
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.06);
+    box-shadow: 0 15px 50px var(--card-shadow-hover), 0 0 30px var(--card-glow);
+    border-color: rgba(255, 154, 158, 0.6);
+    background: rgba(255, 255, 255, 1);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: inline-block;
+    transition: all var(--transition-normal);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.card:hover .card-icon {
+    transform: scale(1.25) rotate(8deg);
+    filter: drop-shadow(0 4px 12px rgba(255, 154, 158, 0.4));
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* ============================================
+   Moral Yükseltme Butonu
+   ============================================ */
+.button-container {
+    margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+}
+
+.morale-button {
+    background: var(--button-bg);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 1.3rem 3.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 0 8px 30px rgba(255, 154, 158, 0.5), 0 0 0 0 rgba(255, 154, 158, 0.4);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.morale-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.morale-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.morale-button:hover {
+    background: var(--button-hover);
+    background-size: 200% 200%;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 154, 158, 0.6), 0 0 20px rgba(196, 113, 237, 0.4);
+    animation: gradientShift 2s ease infinite;
+}
+
+.morale-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(255, 154, 158, 0.4);
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   Mesaj Gösterim Alanı
+   ============================================ */
+.message-container {
+    min-height: 80px;
+    margin-top: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+.message-text {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 6px 30px var(--card-shadow), 0 0 0 0 var(--card-glow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-normal);
+    max-width: 90%;
+    line-height: 1.7;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.message-text.show {
+    opacity: 1;
+    transform: translateY(0);
+    animation: messagePop 0.6s ease-out;
+    box-shadow: 0 8px 35px var(--card-shadow-hover), 0 0 25px var(--card-glow);
+}
+
+@keyframes messagePop {
+    0% {
+        transform: scale(0.85) translateY(30px);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   Responsive Tasarım
+   ============================================ */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .card {
+        padding: var(--spacing-sm);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .morale-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .illustration {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+    
+    .hero-section {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .cards-container {
+        margin: var(--spacing-md) 0;
+    }
+    
+    .button-container {
+        margin: var(--spacing-md) 0;
+    }
+}
+
+/* ============================================
+   Ekstra Smooth Animasyonlar
+   ============================================ */
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ============================================
+   Lilyum Demeti
+   ============================================ */
+.lily-bouquet-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lily-bouquet-container.show {
+    opacity: 1;
+    animation: lilyAppear 1s ease-out forwards;
+}
+
+@keyframes lilyAppear {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.lily-bouquet-container.hide {
+    animation: lilyDisappear 0.8s ease-in forwards;
+}
+
+@keyframes lilyDisappear {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+.lily-bouquet {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(255, 182, 193, 0.5));
+    animation: lilyFloat 3s ease-in-out infinite;
+}
+
+@keyframes lilyFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+}
+
+/* Lilyum için parçacık efekti */
+.lily-bouquet-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: lilyGlow 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes lilyGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+/* Print Styles (Opsiyonel) */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .morale-button {
+        display: none;
+    }
+    
+    .lily-bouquet-container {
+        display: none;
+    }
+}
+

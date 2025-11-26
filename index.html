@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sen Harikasın! ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Ana Karşılama Mesajı -->
+        <div class="hero-section">
+            <h1 class="hero-title fade-in">nasılsınn</h1>
+        </div>
+
+        <!-- SVG Illustration -->
+        <div class="illustration-container fade-in-delay-2">
+            <svg class="illustration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Güneş -->
+                <circle cx="100" cy="60" r="30" fill="#FFD93D" opacity="0.9">
+                    <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <!-- Bulutlar -->
+                <ellipse cx="50" cy="100" rx="25" ry="15" fill="#FFFFFF" opacity="0.8"/>
+                <ellipse cx="70" cy="100" rx="20" ry="12" fill="#FFFFFF" opacity="0.8"/>
+                <ellipse cx="150" cy="120" rx="30" ry="18" fill="#FFFFFF" opacity="0.8"/>
+                <ellipse cx="170" cy="120" rx="25" ry="15" fill="#FFFFFF" opacity="0.8"/>
+                <!-- Kalp -->
+                <path d="M100 140 Q90 130 85 135 Q80 140 100 160 Q120 140 115 135 Q110 130 100 140" fill="#FF6B9D" opacity="0.9">
+                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+                </path>
+                <!-- Yıldızlar -->
+                <path d="M40 50 L42 58 L50 58 L43 63 L45 71 L40 66 L35 71 L37 63 L30 58 L38 58 Z" fill="#FFD93D" opacity="0.7">
+                    <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+                </path>
+                <path d="M160 80 L161 85 L166 85 L162 88 L163 93 L160 90 L157 93 L158 88 L154 85 L159 85 Z" fill="#FFD93D" opacity="0.7">
+                    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+        </div>
+
+        <!-- Motive Edici Kartlar -->
+        <div class="cards-container fade-in-delay-3">
+            <div class="card">
+                <div class="card-icon">💗</div>
+                <h3 class="card-title">Moralini Koru</h3>
+                <p class="card-text">Kimsenin senin moralini bozmasına izin verme hayat sadece derslerden ibaret değil ama önem vermekde lazım</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🦋</div>
+                <h3 class="card-title">Kelebek gibi olduğunu hatırla</h3>
+                <p class="card-text">Kelebekler kendi kanatlarını görmez kendilerini çirkin sanarlarmış sende bi kelebeksin aslında kendini çirkin sanıyosun ama ne kadar güzelsin haberin yok</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌟</div>
+                <h3 class="card-title">Sen özel birisin</h3>
+                <p class="card-text">O gülüşün ve güzel kahverengi gözlerin kadar değerlisinnnn</p>
+            </div>
+        </div>
+
+        <!-- Mesaj Gösterim Alanı -->
+        <div class="message-container" id="messageContainer">
+            <p class="message-text" id="messageText"></p>
+        </div>
+
+        <!-- Moral Yükseltme Butonu -->
+        <div class="button-container fade-in-delay-4">
+            <button class="morale-button" id="moraleButton">
+                <span class="button-text">butona tıklaaaaa 💫</span>
+            </button>
+        </div>
+
+        <!-- Lilyum Demeti -->
+        <div class="lily-bouquet-container" id="lilyBouquet">
+            <svg class="lily-bouquet" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Yapraklar -->
+                <path d="M150 350 Q120 320 100 340 Q80 360 100 380 Q120 400 150 380 Q180 400 200 380 Q220 360 200 340 Q180 320 150 350" fill="#90EE90" opacity="0.8"/>
+                <path d="M150 360 Q130 340 115 355 Q100 370 115 385 Q130 400 150 390 Q170 400 185 385 Q200 370 185 355 Q170 340 150 360" fill="#98FB98" opacity="0.7"/>
+                
+                <!-- Sağdaki Lilyum -->
+                <ellipse cx="180" cy="200" rx="25" ry="60" fill="#FFB6C1" opacity="0.9" transform="rotate(-15 180 200)"/>
+                <ellipse cx="180" cy="200" rx="25" ry="60" fill="#FFC0CB" opacity="0.8" transform="rotate(15 180 200)"/>
+                <ellipse cx="180" cy="200" rx="25" ry="60" fill="#FFB6C1" opacity="0.85"/>
+                <!-- Sağ Lilyum İçi -->
+                <ellipse cx="180" cy="220" rx="8" ry="15" fill="#FF69B4" opacity="0.7"/>
+                <circle cx="185" cy="215" r="3" fill="#FF1493"/>
+                <circle cx="175" cy="215" r="3" fill="#FF1493"/>
+                <circle cx="180" cy="210" r="2" fill="#FF1493"/>
+                
+                <!-- Ortadaki Lilyum -->
+                <ellipse cx="150" cy="180" rx="30" ry="70" fill="#FFB6C1" opacity="0.95" transform="rotate(-10 150 180)"/>
+                <ellipse cx="150" cy="180" rx="30" ry="70" fill="#FFC0CB" opacity="0.9" transform="rotate(10 150 180)"/>
+                <ellipse cx="150" cy="180" rx="30" ry="70" fill="#FFB6C1" opacity="0.92"/>
+                <!-- Orta Lilyum İçi -->
+                <ellipse cx="150" cy="200" rx="10" ry="20" fill="#FF69B4" opacity="0.8"/>
+                <circle cx="155" cy="195" r="4" fill="#FF1493"/>
+                <circle cx="145" cy="195" r="4" fill="#FF1493"/>
+                <circle cx="150" cy="190" r="3" fill="#FF1493"/>
+                <circle cx="152" cy="200" r="2" fill="#FF1493"/>
+                <circle cx="148" cy="200" r="2" fill="#FF1493"/>
+                
+                <!-- Soldaki Lilyum -->
+                <ellipse cx="120" cy="210" rx="22" ry="55" fill="#FFB6C1" opacity="0.9" transform="rotate(15 120 210)"/>
+                <ellipse cx="120" cy="210" rx="22" ry="55" fill="#FFC0CB" opacity="0.8" transform="rotate(-15 120 210)"/>
+                <ellipse cx="120" cy="210" rx="22" ry="55" fill="#FFB6C1" opacity="0.85"/>
+                <!-- Sol Lilyum İçi -->
+                <ellipse cx="120" cy="230" rx="7" ry="12" fill="#FF69B4" opacity="0.7"/>
+                <circle cx="124" cy="225" r="3" fill="#FF1493"/>
+                <circle cx="116" cy="225" r="3" fill="#FF1493"/>
+                <circle cx="120" cy="220" r="2" fill="#FF1493"/>
+                
+                <!-- Sağ Üstteki Küçük Lilyum -->
+                <ellipse cx="200" cy="160" rx="18" ry="45" fill="#FFB6C1" opacity="0.85" transform="rotate(-20 200 160)"/>
+                <ellipse cx="200" cy="160" rx="18" ry="45" fill="#FFC0CB" opacity="0.8"/>
+                <ellipse cx="200" cy="175" rx="6" ry="10" fill="#FF69B4" opacity="0.7"/>
+                <circle cx="203" cy="170" r="2.5" fill="#FF1493"/>
+                <circle cx="197" cy="170" r="2.5" fill="#FF1493"/>
+                
+                <!-- Sol Üstteki Küçük Lilyum -->
+                <ellipse cx="100" cy="170" rx="18" ry="45" fill="#FFB6C1" opacity="0.85" transform="rotate(20 100 170)"/>
+                <ellipse cx="100" cy="170" rx="18" ry="45" fill="#FFC0CB" opacity="0.8"/>
+                <ellipse cx="100" cy="185" rx="6" ry="10" fill="#FF69B4" opacity="0.7"/>
+                <circle cx="103" cy="180" r="2.5" fill="#FF1493"/>
+                <circle cx="97" cy="180" r="2.5" fill="#FF1493"/>
+                
+                <!-- Sap -->
+                <path d="M150 350 L150 120" stroke="#228B22" stroke-width="8" fill="none" stroke-linecap="round"/>
+                <path d="M150 350 L180 200" stroke="#32CD32" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <path d="M150 350 L120 210" stroke="#32CD32" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
